@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Theme Styles */
+body.theme-modern {
+  background: linear-gradient(to bottom right, rgb(15, 23, 42), rgb(88, 28, 135), rgb(15, 23, 42));
+}
+
+body.theme-retro {
+  background: linear-gradient(to bottom, #0f0f23, #1a1a3e);
+  position: relative;
+}
+
+body.theme-retro::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.03) 0px, transparent 1px, transparent 2px, rgba(0, 255, 0, 0.03) 3px),
+    repeating-linear-gradient(90deg, rgba(0, 255, 0, 0.03) 0px, transparent 1px, transparent 2px, rgba(0, 255, 0, 0.03) 3px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.theme-warm {
+  background: linear-gradient(to bottom right, #1a0f0a, #4a1f1f, #6b2d1f, #1a0f0a);
+}
+
+body.theme-galaxy {
+  background: radial-gradient(ellipse at top, #1e1b4b, #0f0a1e),
+              radial-gradient(ellipse at bottom, #4c1d95, #1e1b4b);
+  position: relative;
+}
+
+body.theme-galaxy::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent);
+  background-size: 200% 200%;
+  background-position: 0% 0%, 40% 60%, 50% 50%, 80% 10%, 90% 60%, 33% 80%;
+  animation: twinkle 5s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+body.theme-ocean {
+  background: linear-gradient(to bottom, #001d3d, #003566, #001d3d);
+}
+
+body.theme-forest {
+  background: linear-gradient(135deg, #0a2e0a, #1a4d1a, #0f3a0f, #0a2e0a);
+}
+
+body.theme-sunset {
+  background: linear-gradient(to bottom, #1a0a2e, #4a1942, #ff6b6b, #ffd93d);
+}
+
+body.theme-noir {
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a, #262626, #0d0d0d);
+}
+
+body.theme-neon {
+  background: linear-gradient(to bottom right, #0a0a0a, #1a0033, #330066, #0a0a0a);
+}
+
+body.theme-arctic {
+  background: linear-gradient(to bottom, #e0f2fe, #bae6fd, #7dd3fc, #38bdf8);
+}
+
+body.theme-desert {
+  background: linear-gradient(to bottom, #451a03, #78350f, #a16207, #ca8a04);
+}
+
+body.theme-midnight {
+  background: linear-gradient(to bottom right, #0f0a1e, #1e1548, #2d1b69, #0f0a1e);
+}
+
+body.theme-aurora {
+  background: linear-gradient(135deg, #1a0033, #00ffaa, #00ccff, #1a0033);
+}
+
+body.theme-volcanic {
+  background: linear-gradient(to bottom, #1a0000, #4a0000, #8b0000, #4a0000, #1a0000);
+}
+
+body.theme-crystal {
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe, #a5b4fc, #818cf8);
+}
+
+body.theme-shadow {
+  background: linear-gradient(to bottom right, #18181b, #27272a, #3f3f46, #18181b);
+}
+
+/* Title and subtitle styles */
+.theme-title {
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(244, 114, 182));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme-subtitle {
+  color: rgb(196, 181, 253);
+}
+
+body.theme-retro .theme-title {
+  background: none;
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+  font-family: 'Courier New', monospace;
+}
+
+body.theme-retro .theme-subtitle {
+  color: #00ff41;
+  opacity: 0.8;
+}
+
+body.theme-warm .theme-title {
+  background: linear-gradient(to right, #ff9a56, #ffcb77, #ff6b6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-warm .theme-subtitle {
+  color: #ffd4a3;
+}
+
+body.theme-galaxy .theme-title {
+  background: linear-gradient(to right, #a78bfa, #ec4899, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+body.theme-galaxy .theme-subtitle {
+  color: #c4b5fd;
+}
+
+body.theme-ocean .theme-title {
+  background: linear-gradient(to right, #00b4d8, #0077b6, #03045e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-ocean .theme-subtitle {
+  color: #90e0ef;
+}
+
+body.theme-forest .theme-title {
+  background: linear-gradient(to right, #2d6a4f, #52b788, #95d5b2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-forest .theme-subtitle {
+  color: #b7e4c7;
+}
+
+body.theme-sunset .theme-title {
+  background: linear-gradient(to right, #ff6b6b, #ffd93d, #ff9a56);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-sunset .theme-subtitle {
+  color: #ffcb77;
+}
+
+body.theme-noir .theme-title {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+body.theme-noir .theme-subtitle {
+  color: #d4d4d8;
+}
+
+body.theme-neon .theme-title {
+  background: linear-gradient(to right, #ff00ff, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+body.theme-neon .theme-subtitle {
+  color: #ff00ff;
+}
+
+body.theme-arctic .theme-title {
+  background: linear-gradient(to right, #0ea5e9, #38bdf8, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-arctic .theme-subtitle {
+  color: #0c4a6e;
+}
+
+body.theme-desert .theme-title {
+  background: linear-gradient(to right, #f59e0b, #fbbf24, #fcd34d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-desert .theme-subtitle {
+  color: #fde68a;
+}
+
+body.theme-midnight .theme-title {
+  background: linear-gradient(to right, #6366f1, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-midnight .theme-subtitle {
+  color: #c4b5fd;
+}
+
+body.theme-aurora .theme-title {
+  background: linear-gradient(to right, #00ffaa, #00ccff, #00ffaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+body.theme-aurora .theme-subtitle {
+  color: #7fffd4;
+}
+
+body.theme-volcanic .theme-title {
+  background: linear-gradient(to right, #dc2626, #f97316, #facc15);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+body.theme-volcanic .theme-subtitle {
+  color: #fca5a5;
+}
+
+body.theme-crystal .theme-title {
+  background: linear-gradient(to right, #818cf8, #a5b4fc, #c7d2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.theme-crystal .theme-subtitle {
+  color: #6366f1;
+}
+
+body.theme-shadow .theme-title {
+  color: #a1a1aa;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+body.theme-shadow .theme-subtitle {
+  color: #71717a;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
